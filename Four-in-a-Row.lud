@@ -1,0 +1,20 @@
+(game "Four-in-a-Row"
+    (players 2)
+    (equipment
+        {
+            (board (square 4))
+            (piece "Disc" P1)
+            (piece "Cross" P2)
+        }
+    )
+    (rules
+        (play (move Add (to (sites Empty))))
+        (end
+            {
+                (if (is Line 4) (result Mover Win))
+                (if (is Full) (result Mover Draw))
+            }
+        )
+    )
+)
+
